@@ -28,7 +28,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-		if (!request.getMethod().equals("OPTIONS")) {
+		if (!request.getMethod().equalsIgnoreCase("OPTIONS")) {
 			// 0. Questo metodo verrà invocato per ogni request
 			// 1. Prima di tutto dovrò estrarre il token dall'Authorization Header
 			String authHeader = request.getHeader("Authorization");
